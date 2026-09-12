@@ -17,7 +17,7 @@ const loops = [
 ];
 
 const tracks = [
-  { title: "Start · Tool Basics", desc: "Labs 20–25. Linux, Git, Jenkins, Kubernetes, Helm, Terraform — each tool explained line by line.", href: "/modules#track-basics" },
+  { title: "Start · Tool Basics", desc: "Labs 20–27. Linux, Git, Jenkins, Kubernetes, Helm, Terraform, webhooks, agentic AI — each tool explained line by line.", href: "/modules#track-basics" },
   { title: "1 · Cloud Foundations", desc: "Labs 30–35. AWS account, access keys, VPC + EC2, Docker setup, build & push images — every line explained.", href: "/modules#track-foundations" },
   { title: "2 · Platform & Network", desc: "Labs 36–37. The map + VPC 10.0.0.0/16, subnets, IGW/NAT, pod vs service networking.", href: "/modules#track-platform" },
   { title: "3 · Cluster & Security", desc: "Labs 38–42. eksctl, IAM/RBAC, Pod Identity, SGs, NetworkPolicy zero-trust.", href: "/modules#track-security" },
@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             <div className="mt-6 grid max-w-xl grid-cols-3 gap-3">
               {[
-                ["44", "hands-on labs"],
+                ["46", "hands-on labs"],
                 ["12", "arch diagrams"],
                 ["11-step", "triage flow"],
               ].map(([n, l]) => (

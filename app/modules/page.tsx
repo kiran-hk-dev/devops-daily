@@ -49,7 +49,7 @@ export default function ModulesPage() {
   }, [filtered]);
 
   const trackTitle = (key: string) =>
-    key === "track-basics" ? "Start · Tool Basics (20–29) — begin here"
+    key === "track-basics" ? "Start · Tool Basics (20–27) — begin here"
     : key === "track-foundations" ? "1 · Cloud Foundations (30–35)"
     : key === "track-platform" ? "2 · Platform & Network (36–37)"
     : key === "track-security" ? "3 · Cluster & Security (38–42)"

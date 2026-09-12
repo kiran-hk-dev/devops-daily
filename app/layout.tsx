@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "DevOps Daily — Tasks & Issues of a DevOps Engineer",
   description:
-    "Daily tasks and issues of a DevOps engineer, hands-on: Linux, Git, Jenkins, Kubernetes, Helm, Terraform, AWS, Docker, EKS, networking, security, ingress, TLS, observability, delivery, incidents. Labs 20–67.",
+    "Daily tasks and issues of a DevOps engineer, hands-on: Linux, Git, Jenkins, Kubernetes, Helm, Terraform, webhooks, agentic AI, AWS, Docker, EKS, networking, security, ingress, TLS, observability, delivery, incidents. Labs 20–67.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #09090b;
+}
+
+::selection {
+  background: #10b981;
+  color: #09090b;
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 8px;
+}
+
+/* ---------- Animated technical flow diagrams ---------- */
+
+.anim-flow {
+  background-image: radial-gradient(rgba(63, 63, 70, 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Pulsing "live" indicator */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+  animation: live-ping 1.6s ease-out infinite;
+}
+@keyframes live-ping {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+/* Staggered node entrance */
+.anim-flow .node-in {
+  opacity: 0;
+  animation: node-in 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+@keyframes node-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Node hover glow */
+.flow-node {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.flow-node:hover {
+  border-color: #10b981;
+  box-shadow: 0 0 22px -4px rgba(16, 185, 129, 0.45);
+}
+
+/* Connector: marching-dash flow line + travelling packet + bobbing chevron */
+.flow-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3px;
+}
+.flow-track {
+  position: relative;
+  width: 2px;
+  height: 26px;
+  border-radius: 2px;
+  background-image: repeating-linear-gradient(to bottom, #10b981 0 5px, transparent 5px 10px);
+  background-size: 100% 20px;
+  opacity: 0.75;
+  animation: flow-march 0.9s linear infinite;
+}
+@keyframes flow-march {
+  to { background-position-y: 20px; }
+}
+.flow-packet {
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 9999px;
+  background: #34d399;
+  box-shadow: 0 0 10px 2px rgba(52, 211, 153, 0.7);
+  opacity: 0;
+  animation: packet-drop 1.8s cubic-bezier(0.4, 0, 0.4, 1) infinite;
+}
+@keyframes packet-drop {
+  0% { top: -4px; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { top: calc(100% - 4px); opacity: 0; }
+}
+.flow-chev {
+  color: #10b981;
+  font-size: 10px;
+  line-height: 1;
+  margin-top: 2px;
+  animation: chev-bob 1.8s ease-in-out infinite;
+}
+@keyframes chev-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(2px); opacity: 1; }
+}
+
+/* Pipeline strip arrows pulse in sequence */
+.strip-arrow {
+  color: #10b981;
+  font-weight: 700;
+  animation: arrow-blink 1.6s ease-in-out infinite;
+}
+@keyframes arrow-blink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim-flow .node-in {
+    opacity: 1 !important;
+  }
+  .anim-flow *,
+  .strip-arrow,
+  .live-dot {
+    animation: none !important;
+  }
+}
